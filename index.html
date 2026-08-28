@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="favicon.png?v=2">
+<title>Garabatos Papelería — Lista de precios</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <img class="logo" src="logo-wordmark-transparent.png" alt="Garabatos Papelería">
+    <h1>Lista de <span>precios<svg viewBox="0 0 140 14" preserveAspectRatio="none"><path d="M2 9 C 30 2, 60 13, 90 6 S 130 3, 138 8" stroke="#E01883" stroke-width="6" fill="none" stroke-linecap="round"/></svg></span></h1>
+    <p>Precios de referencia actualizados. Busca por nombre o código de producto.</p>
+    <a class="home-button" href="https://garabatospapeleria.com/">← Ir a Garabatos Papelería</a>
+  </header>
+
+  <div class="searchbox">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    <input id="buscador" type="text" placeholder="Ej: cuaderno, LAP-2043, marcador..." autocomplete="off">
+    <span class="count" id="contador"></span>
+  </div>
+
+  <div class="list-controls">
+    <label class="sort-control" for="ordenarProductos">
+      Ordenar por
+      <select id="ordenarProductos">
+        <option value="relevancia">Relevancia</option>
+        <option value="precio-desc">Mayor precio</option>
+        <option value="existencias-desc">Mayor inventario</option>
+      </select>
+    </label>
+  </div>
+
+  <div class="headerRow">
+    <span>Referencia</span>
+    <span>Nombre</span>
+    <span>Inventario</span>
+    <span>Precio</span>
+    <span></span>
+  </div>
+  <div class="list" id="lista"></div>
+  <div class="pagination" id="paginacion" hidden>
+    <button class="page-btn" id="paginaAnterior" type="button" aria-label="Página anterior">← Anterior</button>
+    <span class="page-info" id="paginaInfo"></span>
+    <button class="page-btn" id="paginaSiguiente" type="button" aria-label="Página siguiente">Siguiente →</button>
+  </div>
+
+  <div class="empty" id="vacio">
+    <div class="big">No encontramos ese producto</div>
+    <div>Prueba con otro nombre o código.</div>
+  </div>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-brand">
+        <h2>GARABATOS COMPANY SAS</h2>
+        <p>Somos más que una papelería. Encuentra productos para hogar, tecnología, juguetería, mascotas, oficina, piñatería, regalos y mucho más. Hacemos envíos a todo Colombia.</p>
+      </div>
+      <div class="footer-contact">
+        <h3>Contacto</h3>
+        <a href="https://wa.me/573178549714" target="_blank" rel="noopener">WhatsApp: +57 317 854 9714</a>
+        <a href="tel:+573182343558">Teléfono: +57 318 234 3558</a>
+        <a href="mailto:ecommerce@garabatospapeleria.com">ecommerce@garabatospapeleria.com</a>
+        <address>Carrera 36 # 51 - 53, Cabecera del Llano, Bucaramanga, Santander.</address>
+      </div>
+    </div>
+    <div class="footer-bottom">Garabatos Papelería · Lista de referencia; precios sujetos a cambio sin previo aviso.</div>
+  </footer>
+
+  <button class="quote-trigger" id="abrirCarrito" type="button" aria-haspopup="dialog" aria-controls="panelCarrito">
+    Cotización <span class="cart-count" id="cantidadCarrito">0</span>
+  </button>
+
+  <div class="cart-backdrop" id="panelCarrito" aria-hidden="true">
+    <aside class="cart-drawer" role="dialog" aria-modal="true" aria-labelledby="tituloCarrito">
+      <div class="cart-head">
+        <h2 id="tituloCarrito">Tu cotización</h2>
+        <button class="close-cart" id="cerrarCarrito" type="button" aria-label="Cerrar cotización">×</button>
+      </div>
+      <div class="cart-items" id="itemsCarrito"></div>
+      <div class="cart-summary">
+        <div class="cart-total"><span>Total estimado</span><strong id="totalCarrito">$0</strong></div>
+        <button class="send-quote" id="enviarCotizacion" type="button">Enviar cotización por WhatsApp</button>
+        <button class="clear-cart" id="vaciarCarrito" type="button">Vaciar cotización</button>
+      </div>
+    </aside>
+  </div>
+
+  <a class="whatsapp-float" href="https://api.whatsapp.com/send?phone=573178549714&text=%C2%A1Hola!%20Estoy%20viendo%20la%20lista%20de%20precios%20de%20GARABATOS%20PAPELERIA" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
+    <svg viewBox="0 0 32 32" fill="#FFFFFF" xmlns="http://www.w3.org/2000/svg"><path d="M16.004 3C9.377 3 4 8.373 4 15c0 2.31.65 4.47 1.78 6.31L4 29l7.86-1.75A11.94 11.94 0 0 0 16.004 27C22.63 27 28 21.627 28 15S22.63 3 16.004 3zm0 21.8c-1.9 0-3.68-.52-5.2-1.44l-.37-.22-4.66 1.04 1.01-4.53-.24-.38A9.77 9.77 0 0 1 5.2 15c0-5.96 4.85-10.8 10.8-10.8S26.8 9.04 26.8 15 21.96 24.8 16.004 24.8zm5.98-8.2c-.33-.16-1.94-.96-2.24-1.07-.3-.11-.52-.16-.74.16-.22.33-.85 1.07-1.04 1.29-.19.22-.38.24-.71.08-.33-.16-1.38-.51-2.63-1.63-.97-.87-1.63-1.94-1.82-2.27-.19-.33-.02-.5.14-.66.15-.15.33-.38.5-.57.16-.19.22-.33.33-.55.11-.22.05-.41-.03-.57-.08-.16-.74-1.78-1.01-2.44-.27-.64-.54-.56-.74-.57-.19-.01-.41-.01-.63-.01s-.57.08-.87.41c-.3.33-1.14 1.11-1.14 2.71s1.17 3.14 1.33 3.36c.16.22 2.3 3.51 5.57 4.92.78.34 1.38.54 1.86.69.78.25 1.49.21 2.05.13.63-.09 1.94-.79 2.21-1.56.27-.77.27-1.43.19-1.56-.08-.14-.3-.22-.63-.38z"/></svg>
+  </a>
+</div>
+
+<script src="datos.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
