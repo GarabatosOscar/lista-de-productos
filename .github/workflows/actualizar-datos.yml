@@ -1,1 +1,36 @@
+name: Actualizar lista de precios
 
+on:
+  push:
+    branches: [main]
+    paths:
+      - "lista_precios.xlsx"
+  workflow_dispatch: {}
+
+# Necesario para que la Action pueda hacer commit de vuelta al repo
+permissions:
+  contents: write
+
+jobs:
+  generar-datos:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar el repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Instalar dependencia (lector de Excel)
+        run: npm install xlsx
+
+      - name: Generar datos.js a partir del Excel
+        run: node scripts/generar_datos.js
+
+      - name: Subir datos.js actualizado
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Actualizar datos.js desde lista_precios.xlsx"
+          file_pattern: datos.js
