@@ -14,10 +14,25 @@
 <div class="wrap">
 
   <header>
-    <img class="logo" src="logo-wordmark-transparent.png" alt="Garabatos Papelería">
-    <h1>Lista de <span>precios<svg viewBox="0 0 140 14" preserveAspectRatio="none"><path d="M2 9 C 30 2, 60 13, 90 6 S 130 3, 138 8" stroke="#E01883" stroke-width="6" fill="none" stroke-linecap="round"/></svg></span></h1>
-    <p>Precios de referencia actualizados. Busca por nombre o código de producto.</p>
-    <a class="home-button" href="https://garabatospapeleria.com/">← Ir a Garabatos Papelería</a>
+    <!-- Barra superior o de navegación principal -->
+  <div class="nav-bar">
+    <div class="header-container">
+      <a href="https://garabatospapeleria.com/" class="brand-link">
+        <img src="logo-wordmark-transparent.png" alt="Garabatos Papelería" class="brand-logo">
+      </a>
+      
+      <!-- Menú que imita la navegación principal -->
+      <nav class="main-nav">
+        <a href="https://garabatospapeleria.com/">Inicio</a>
+        <a href="https://garabatospapeleria.com/collections/all">Catálogo Web</a>
+        <a href="#" class="active">Cotizador Rápido</a>
+      </nav>
+
+      <button id="abrirCarrito" class="cart-button" type="button">
+        🛒 Cotización (<span id="cantidadCarrito">0</span>)
+      </button>
+    </div>
+  </div>
   </header>
 
   <div class="searchbox">
